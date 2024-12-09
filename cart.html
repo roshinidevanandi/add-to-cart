@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            color: rgb(5, 17, 246);
+            font-style: italic;
+            font-weight: bold;
+
+        }
+        img{
+            height: 400px;
+            width: 400px;
+        }
+    </style>
+</head>
+<body>
+    <h1><u>Liked products</u></h1>
+    <div id="parent"></div>
+
+    <script>
+        let parent=document.getElementById('parent');
+        let getdata=JSON.parse(localStorage.getItem("details"))
+        console.log(getdata);
+
+        newgetdata=getdata.map((val)=>{
+            let child=document.createElement("div");
+            let childa=document.createElement("div");
+            let childb=document.createElement("div");
+            let childc=document.createElement("div");
+            let childd=document.createElement("div");
+            let img=document.createElement("img");
+            img.src=val.image;
+
+            childa.innerHTML=val.id
+            childb.innerHTML=val.title
+            childc.innerHTML=val.category
+            childd.innerHTML=val.price
+            child.append(childa,childb,childc,childd,img)
+            parent.append(child)
+        })
+                
+    </script>
+</body>
+</html>
